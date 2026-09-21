@@ -18,7 +18,7 @@
  * @since      1.0.0
  * @package    Smart_Insight_Lite
  * @subpackage Smart_Insight_Lite/includes
- * @author     Luca Borghese <lucaborghy@gmail.com>
+ * @author     Luca Borghese <info@lucaborghese.it>
  */
 class Smart_Insight_Lite_Activator {
 
@@ -42,8 +42,8 @@ class Smart_Insight_Lite_Activator {
 		$charset_collate = $wpdb->get_charset_collate();
 
 		// Controlla se la tabella esiste già
-		$query = "SHOW TABLES LIKE {$table_name}";
-		if ($wpdb->get_var($query) != $table_name) {
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- One-off schema check on activation, caching is not applicable.
+		if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $table_name ) ) != $table_name ) {
 			$sql = "CREATE TABLE {$table_name} (
 				id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 				page_url VARCHAR(255) NOT NULL,

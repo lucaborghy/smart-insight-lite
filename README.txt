@@ -1,18 +1,18 @@
 === Smart Insight Lite ===
 Contributors: lucaborghy
-Donate link: https://www.borghydesing.it/
+Donate link: https://lucaborghese.it/
 Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 6.6
+Requires at least: 6.2
+Tested up to: 7.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Questo plugin aggiunge al tuo sito web una dashboard semplice e intuitiva con le metriche essenziali relative al traffico e alle conversioni.
+This plugin adds a simple and intuitive dashboard to your website, featuring essential traffic and conversion metrics.
 
 == Description ==
 
-Nella sezione Analytics Dashboard aggiunta dal plugin visualizzerai una tabella con l'elenco delle pagine visitate da utenti unici con la data di visita, la durata in secondi e l'elenco di azioni effettuate.
+In the Analytics Dashboard section added by the plugin, you will see a table listing the pages visited by unique users, including the visit date, duration in seconds, and a list of actions performed.
 
 == Installation ==
 

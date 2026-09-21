@@ -11,6 +11,10 @@
  * @package    Smart_Insight_Lite
  * @subpackage Smart_Insight_Lite/public/partials
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->

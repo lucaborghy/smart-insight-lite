@@ -18,7 +18,7 @@
  *
  * @package    Smart_Insight_Lite
  * @subpackage Smart_Insight_Lite/public
- * @author     Luca Borghese <lucaborghy@gmail.com>
+ * @author     Luca Borghese <info@lucaborghese.it>
  */
 class Smart_Insight_Lite_Public {
 
@@ -146,7 +146,8 @@ class Smart_Insight_Lite_Public {
 		];
 		
 		$formati = ['%s', '%s', '%d', '%s', '%s'];
-		
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Insert into custom table via $wpdb->insert(), no caching API alternative.
 		$wpdb->insert($table_name, $data, $formati);
 
 		wp_cache_delete($cache_key);

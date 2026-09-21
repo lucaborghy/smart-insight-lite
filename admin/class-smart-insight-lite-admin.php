@@ -18,7 +18,7 @@
  *
  * @package    Smart_Insight_Lite
  * @subpackage Smart_Insight_Lite/admin
- * @author     Luca Borghese <lucaborghy@gmail.com>
+ * @author     Luca Borghese <info@lucaborghese.it>
  */
 class Smart_Insight_Lite_Admin {
 
@@ -126,8 +126,8 @@ class Smart_Insight_Lite_Admin {
 
 		// Recupera i dati delle ultime 10 visite per la tabella
 		if ($cache_table_ctrl === false) {
-			$query = $wpdb->prepare("SELECT * FROM {$table_name} ORDER BY visit_date DESC LIMIT %d", 50);
-			$results = $wpdb->get_results($query);
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table, no caching API alternative; results are cached above.
+			$results = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM %i ORDER BY visit_date DESC LIMIT %d', $table_name, 50 ) );
 			wp_cache_set($cache_table_key, $results, '', 3600); // Cache per 1 ora
 		} else {
 			$results = $cache_table_ctrl;
@@ -205,8 +205,8 @@ class Smart_Insight_Lite_Admin {
 	
 		// Recupera e prepara i dati per il grafico
 		if ($cache_graph_ctrl === false) {
-			$query = $wpdb->prepare("SELECT DATE(visit_date) as visit_date, COUNT(*) as visits FROM $table_name GROUP BY DATE(visit_date) ORDER BY visit_date ASC LIMIT %d", 15);
-			$results = $wpdb->get_results($query);
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery -- Custom table, no caching API alternative; results are cached above.
+			$results = $wpdb->get_results( $wpdb->prepare( 'SELECT DATE(visit_date) as visit_date, COUNT(*) as visits FROM %i GROUP BY DATE(visit_date) ORDER BY visit_date ASC LIMIT %d', $table_name, 15 ) );
 			wp_cache_set($cache_graph_key, $results, '', 3600); // Cache per 1 ora
 		} else {
 			$results = $cache_graph_ctrl;

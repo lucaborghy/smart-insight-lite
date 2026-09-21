@@ -19,7 +19,7 @@
  *
  * @package    Smart_Insight_Lite
  * @subpackage Smart_Insight_Lite/includes
- * @author     Luca Borghese <lucaborghy@gmail.com>
+ * @author     Luca Borghese <info@lucaborghese.it>
  */
 class Smart_Insight_Lite_Loader {
 

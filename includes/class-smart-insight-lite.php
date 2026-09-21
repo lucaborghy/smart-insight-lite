@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Smart_Insight_Lite
  * @subpackage Smart_Insight_Lite/includes
- * @author     Luca Borghese <lucaborghy@gmail.com>
+ * @author     Luca Borghese <info@lucaborghese.it>
  */
 class Smart_Insight_Lite {
 
@@ -75,7 +75,6 @@ class Smart_Insight_Lite {
 		$this->plugin_name = 'smart-insight-lite';
 
 		$this->load_dependencies();
-		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
@@ -106,12 +105,6 @@ class Smart_Insight_Lite {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-smart-insight-lite-loader.php';
 
 		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-smart-insight-lite-i18n.php';
-
-		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-smart-insight-lite-admin.php';
@@ -123,23 +116,6 @@ class Smart_Insight_Lite {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-smart-insight-lite-public.php';
 
 		$this->loader = new Smart_Insight_Lite_Loader();
-
-	}
-
-	/**
-	 * Define the locale for this plugin for internationalization.
-	 *
-	 * Uses the Smart_Insight_Lite_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function set_locale() {
-
-		$plugin_i18n = new Smart_Insight_Lite_i18n();
-
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
 
